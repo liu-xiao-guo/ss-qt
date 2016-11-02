@@ -18,12 +18,11 @@ parts:
     source: https://github.com/shadowsocks/shadowsocks-qt5
     source-type: git
     qt-version: qt5
-    build-packages:
+    stage-packages:
       - libzbar-dev
       - libappindicator-dev
       - libbotan1.10-dev
       - libqrencode-dev
       - libqtshadowsocks-dev
-    stage-packages:
       - libqtshadowsocks
     after: [desktop/qt5]  
