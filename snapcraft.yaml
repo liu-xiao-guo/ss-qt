@@ -1,0 +1,29 @@
+name: ss-qt # you probably want to 'snapcraft register <name>'
+version: '0.1' # just for humans, typically '1.2+git' or '1.3.2'
+summary: Shadowsocks
+description: |
+  This is　shadowsocks snap app
+
+grade: stable # must be 'stable' to release into candidate/stable channels
+confinement: strict # use 'strict' once you have the right plugs and slots
+
+apps:
+  ss-qt:
+    command: desktop-launch $SNAP/usr/bin/ss-qt5
+    plugs: [home,opengl,network,unity7]
+
+parts:
+  ss:
+    plugin: qmake
+    source: https://github.com/shadowsocks/shadowsocks-qt5
+    source-type: git
+    qt-version: qt5
+    build-packages:
+      - libzbar-dev
+      - libappindicator-dev
+      - libbotan1.10-dev
+      - libqrencode-dev
+      - libqtshadowsocks-dev
+    stage-packages:
+      - libqtshadowsocks
+    after: [desktop/qt5]  
