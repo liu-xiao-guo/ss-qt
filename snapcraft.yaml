@@ -10,7 +10,7 @@ confinement: strict # use 'strict' once you have the right plugs and slots
 apps:
   ss-qt:
     command: desktop-launch $SNAP/usr/bin/ss-qt5
-    plugs: [home,opengl,network,unity7]
+    plugs: [home,opengl,network,unity7,browser-support,network-bind]
 
 parts:
   ss:
